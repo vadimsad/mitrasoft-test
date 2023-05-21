@@ -1,16 +1,11 @@
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import { Outlet } from 'react-router';
+import Layout from './components/Layout';
 
 function App() {
 	return (
-		<div className='container d-flex flex-column'>
-			<Header />
-			<div className='flex-grow-1'>
-				<Main />
-			</div>
-			<Footer />
-		</div>
+		<Layout>
+			<Outlet />
+		</Layout>
 	);
 }
 
