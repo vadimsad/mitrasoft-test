@@ -1,8 +1,21 @@
 import React from 'react';
-import { Card, Button, Image, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Card, Button, Image } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+	fetchCommentsAction,
+	selectCommentsByPostId,
+	selectCommentsData,
+} from '../../redux/reducers/comments';
 
 const Post = ({ body, id, title, userId }) => {
+	const commentsData = useSelector(selectCommentsByPostId(id));
+	const loading = commentsData?.loading;
+	const dispatch = useDispatch();
+
+	const showComments = () => {
+		dispatch(fetchCommentsAction(id));
+	};
+
 	return (
 		<>
 			<Card>
@@ -15,7 +28,9 @@ const Post = ({ body, id, title, userId }) => {
 					<div>
 						<Card.Title>{title}</Card.Title>
 						<Card.Text>{body}</Card.Text>
-						<Button size='sm'>Комментарии</Button>
+						<Button onClick={showComments} disabled={loading} size='sm'>
+							Комментарии
+						</Button>
 					</div>
 				</Card.Body>
 			</Card>

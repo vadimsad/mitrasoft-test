@@ -1,6 +1,11 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import { api } from '../../api/api';
-import { FETCH_POSTS, postsRequestAction, postsSuccessAction } from '../reducers/posts';
+import {
+	FETCH_POSTS,
+	postsFailAction,
+	postsRequestAction,
+	postsSuccessAction,
+} from '../reducers/posts';
 
 function* fetchPostsWorker() {
 	try {
@@ -10,9 +15,11 @@ function* fetchPostsWorker() {
 		if (res.status === 200) {
 			yield put(postsSuccessAction(res.data));
 		} else {
+			yield put(postsFailAction(res.message));
 			console.log(res);
 		}
 	} catch (error) {
+		yield put(postsFailAction(res.message));
 		console.log(error);
 	}
 }

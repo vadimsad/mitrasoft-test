@@ -9,7 +9,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 const Header = () => {
 	return (
-		<header>
+		<header className='mb-5'>
 			<Navbar bg='light' expand={'md'}>
 				<Container>
 					<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
