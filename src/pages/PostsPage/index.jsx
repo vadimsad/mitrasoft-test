@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPostsAction, selectPostsData } from '../../redux/reducers/posts';
 import Posts from '../../components/Posts';
+import { Spinner } from 'react-bootstrap';
 
 const PostsPage = () => {
 	const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const PostsPage = () => {
 	}, []);
 
 	if (loading) {
-		return <h4>Loading...</h4>;
+		return <Spinner className='d-flex mx-auto' animation='border' />;
 	}
 
 	return (

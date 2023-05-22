@@ -1,4 +1,5 @@
 import React from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { selectCommentsByPostId } from '../../redux/reducers/comments';
 
@@ -8,7 +9,7 @@ const Comments = ({ postId }) => {
 	const { loading, comments } = useSelector(selectCommentsByPostId(postId));
 
 	if (loading) {
-		return <h5>Loading comments...</h5>;
+		return <Spinner className='d-flex mx-auto' animation='border' />;
 	}
 
 	return (

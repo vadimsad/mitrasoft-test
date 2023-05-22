@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Card, Button, Image } from 'react-bootstrap';
+import { Card, Button, Image, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCommentsAction, selectCommentsByPostId } from '../../redux/reducers/comments';
+import { Link } from 'react-router-dom';
 
 import Comments from '../Comments';
 
@@ -24,15 +25,20 @@ const Post = ({ body, id, title, userId }) => {
 		<>
 			<Card>
 				<Card.Body className='d-md-flex d-block gap-3'>
-					<Image
-						src='https://www.tiger-site.com/wp-content/tiger-files/placeholder.png'
-						width='100px'
-						style={{ objectFit: 'contain', alignSelf: 'flex-start' }}
-					/>
+					<Link to={`${id}`} className='h-100 d-inline-block'>
+						<Image
+							src='https://www.tiger-site.com/wp-content/tiger-files/placeholder.png'
+							width='100px'
+							style={{ objectFit: 'contain', alignSelf: 'flex-start' }}
+						/>
+					</Link>
 					<div>
 						<Card.Title>{title}</Card.Title>
 						<Card.Text>{body}</Card.Text>
 						<Button onClick={loadComments} disabled={loading} size='sm'>
+							{loading && (
+								<Spinner as='span' animation='border' size='sm' role='status' aria-hidden='true' />
+							)}
 							Комментарии
 						</Button>
 						{showComments && <Comments postId={id} />}
