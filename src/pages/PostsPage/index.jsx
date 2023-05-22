@@ -1,18 +1,25 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { api } from '../../api/api';
-import { addPostsAction, fetchPostsAction } from '../../redux/reducers/posts';
-import { Button } from 'react-bootstrap';
+import { fetchPostsAction, selectPostsData } from '../../redux/reducers/posts';
+import Posts from '../../components/Posts';
 
 const PostsPage = () => {
 	const dispatch = useDispatch();
-	const posts = useSelector((state) => state.posts);
+	const { loading } = useSelector(selectPostsData);
 
 	useEffect(() => {
 		dispatch(fetchPostsAction());
 	}, []);
 
-	return <div>{posts.length}</div>;
+	if (loading) {
+		return <h4>Loading...</h4>;
+	}
+
+	return (
+		<>
+			<Posts />
+		</>
+	);
 };
 
 export default PostsPage;

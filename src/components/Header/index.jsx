@@ -12,7 +12,6 @@ const Header = () => {
 		<header>
 			<Navbar bg='light' expand={'md'}>
 				<Container>
-					<Navbar.Brand href='#'>Логотип</Navbar.Brand>
 					<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
 					<Navbar.Offcanvas
 						id={`offcanvasNavbar-expand-md`}
@@ -20,10 +19,10 @@ const Header = () => {
 						placement='start'
 					>
 						<Offcanvas.Header closeButton>
-							<Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>Логотип</Offcanvas.Title>
+							<Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>Меню</Offcanvas.Title>
 						</Offcanvas.Header>
 						<Offcanvas.Body>
-							<Nav className='justify-content-end flex-grow-1 pe-3'>
+							<Nav className='justify-content-center flex-grow-1'>
 								<Nav.Item>
 									<LinkContainer to='/'>
 										<Nav.Link as={NavLink} to='/'>
