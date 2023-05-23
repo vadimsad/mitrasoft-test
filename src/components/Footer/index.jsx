@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 const Footer = () => {
 	return (
 		<footer>
-			<Container className='text-muted text-center p-2'>Мечтаю работать в вашей компании</Container>
+			<Container className='text-muted text-center p-2'>Ищу работу</Container>
 		</footer>
 	);
 };

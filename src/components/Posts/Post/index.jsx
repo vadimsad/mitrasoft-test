@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Card, Button, Image, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCommentsAction, selectCommentsByPostId } from '../../redux/reducers/comments';
+import { fetchCommentsAction, selectCommentsByPostId } from '../../../redux/reducers/comments';
 import { Link } from 'react-router-dom';
 
-import Comments from '../Comments';
+import Comments from '../../Comments';
 
 const Post = ({ body, id, title, userId }) => {
 	const commentsData = useSelector(selectCommentsByPostId(id));
@@ -14,10 +14,12 @@ const Post = ({ body, id, title, userId }) => {
 	const [showComments, setShowComments] = useState(false);
 
 	const loadComments = () => {
+		// Если комментарии этого поста еще не были загружены
 		if (!commentsData) {
 			dispatch(fetchCommentsAction(id));
 		}
 
+		// Если была ошибка загрузки комментариев и комментарии скрыты, то пробуем получить их еще раз
 		if (commentsData?.error && !showComments) {
 			dispatch(fetchCommentsAction(id));
 		}

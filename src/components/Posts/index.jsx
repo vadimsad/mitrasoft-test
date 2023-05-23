@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import Post from '../Post';
+import Post from './Post';
 
 const Posts = ({ postsSelector }) => {
 	const { content, loading, error } = useSelector(postsSelector);

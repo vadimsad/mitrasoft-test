@@ -3,7 +3,7 @@ import { Spinner } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { selectCommentsByPostId } from '../../redux/reducers/comments';
 
-import Comment from '../Comment';
+import Comment from './Comment';
 
 const Comments = ({ postId }) => {
 	const { loading, comments, error } = useSelector(selectCommentsByPostId(postId));
