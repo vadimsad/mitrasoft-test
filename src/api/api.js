@@ -15,4 +15,12 @@ export const api = {
 		await delay(1000);
 		return instance.get(`/posts/${postId}/comments`);
 	},
+	async getUser(userId) {
+		await delay(1000);
+		return instance.get(`/users/${userId}`);
+	},
+	async getUserPosts(userId) {
+		await delay(1000);
+		return instance.get(`/users/${userId}/posts`);
+	},
 };

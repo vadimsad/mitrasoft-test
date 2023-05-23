@@ -1,15 +1,18 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { selectPostsData } from '../../redux/reducers/posts';
 import Post from '../Post';
 
-const Posts = () => {
-	const { posts } = useSelector(selectPostsData);
+const Posts = ({ postsSelector }) => {
+	const { content, loading } = useSelector(postsSelector);
+
+	if (loading) {
+		return <Spinner className='d-flex mx-auto' animation='border' />;
+	}
 
 	return (
 		<div className='d-flex flex-column gap-3'>
-			{posts.map((post) => (
+			{content.map((post) => (
 				<Post {...post} key={post.id} />
 			))}
 		</div>

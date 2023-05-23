@@ -4,7 +4,7 @@ const FETCH_POSTS_FAIL = 'FETCH_POSTS_FAIL';
 export const FETCH_POSTS = 'FETCH_POSTS';
 
 const initialState = {
-	posts: [],
+	content: [],
 	loading: true,
 	error: null,
 };
@@ -14,7 +14,7 @@ function posts(state = initialState, action) {
 		case FETCH_POSTS_REQUEST:
 			return { ...state, loading: true, error: null };
 		case FETCH_POSTS_SUCCESS:
-			return { ...state, posts: [...action.payload], loading: false };
+			return { ...state, content: [...action.payload], loading: false };
 		case FETCH_POSTS_FAIL:
 			return { ...state, loading: false, error: action.payload };
 		default:
