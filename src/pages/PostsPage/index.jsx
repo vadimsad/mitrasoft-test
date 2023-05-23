@@ -11,7 +11,7 @@ const PostsPage = () => {
 	}, []);
 
 	return (
-		<section>
+		<section className='mb-5'>
 			<h1 className='fs-3 mb-3'>Все посты:</h1>
 			<Posts postsSelector={selectPostsData} />
 		</section>

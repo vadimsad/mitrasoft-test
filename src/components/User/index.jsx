@@ -13,7 +13,7 @@ const User = () => {
 	return (
 		<Card>
 			<Card.Body>
-				<Card.Title>{name}</Card.Title>
+				<Card.Title>{userData.name}</Card.Title>
 				<ul>
 					{Object.keys(userData).map((propName) => {
 						if (typeof userData[propName] !== 'object') {

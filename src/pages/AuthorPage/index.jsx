@@ -19,7 +19,7 @@ const AuthorPage = () => {
 				<h2 className='fs-4'>Пользователь</h2>
 				<User />
 			</section>
-			<section>
+			<section className='mb-5'>
 				<h2 className='fs-4'>Посты</h2>
 				<Posts postsSelector={selectUserPosts} />
 			</section>
