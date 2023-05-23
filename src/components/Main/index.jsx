@@ -3,7 +3,7 @@ import React from 'react';
 
 const Main = ({ children }) => {
 	return (
-		<main className='h-100'>
+		<main className='h-100 flex-grow-1'>
 			<Container>{children}</Container>
 		</main>
 	);
