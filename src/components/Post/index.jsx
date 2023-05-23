@@ -18,6 +18,10 @@ const Post = ({ body, id, title, userId }) => {
 			dispatch(fetchCommentsAction(id));
 		}
 
+		if (commentsData?.error && !showComments) {
+			dispatch(fetchCommentsAction(id));
+		}
+
 		setShowComments((prev) => !prev);
 	};
 

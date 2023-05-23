@@ -4,10 +4,14 @@ import { useSelector } from 'react-redux';
 import { selectUserData } from '../../redux/reducers/user';
 
 const User = () => {
-	const { content: userData, loading } = useSelector(selectUserData);
+	const { content: userData, loading, error } = useSelector(selectUserData);
 
 	if (loading) {
 		return <Spinner className='d-flex mx-auto' animation='border' />;
+	}
+
+	if (error) {
+		return <h6 className='text-danger'>{error}</h6>;
 	}
 
 	return (

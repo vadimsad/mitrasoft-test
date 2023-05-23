@@ -9,7 +9,6 @@ import { Button } from 'react-bootstrap';
 const UserPage = () => {
 	const { id } = useParams();
 	const userData = useSelector(selectUserData);
-	const userPosts = useSelector(selectUserPosts);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 

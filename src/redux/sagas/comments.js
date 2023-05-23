@@ -13,15 +13,14 @@ function* fetchCommentsWorker(action) {
 		yield put(commentsRequestAction({ postId }));
 
 		const res = yield call(api.getPostComments, postId);
-		if (res.status === 200) {
-			yield put(commentsSuccessAction({ postId, comments: res.data }));
-		} else {
-			yield put(commentsFailAction({ postId, error: res.message }));
-			console.log(res);
-		}
+		yield put(commentsSuccessAction({ postId, comments: res.data }));
 	} catch (error) {
-		yield put(commentsFailAction({ postId, error: res.message }));
-		console.log(error);
+		yield put(
+			commentsFailAction({
+				postId,
+				error: `Не удалось получить список комментариев :( ${error.message}`,
+			}),
+		);
 	}
 }
 

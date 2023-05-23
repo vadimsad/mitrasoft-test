@@ -16,15 +16,11 @@ function* fetchUserDataWorker(action) {
 		yield put(userDataRequestAction());
 
 		const res = yield call(api.getUser, userId);
-		if (res.status === 200) {
-			yield put(userDataSuccessAction(res.data));
-		} else {
-			yield put(userDataFailAction(res.message));
-			console.log(res);
-		}
+		yield put(userDataSuccessAction(res.data));
 	} catch (error) {
-		yield put(userDataFailAction(res.message));
-		console.log(error);
+		yield put(
+			userDataFailAction(`Не удалось получить информацию о пользователе :( ${error.message}`),
+		);
 	}
 }
 
@@ -34,15 +30,11 @@ function* fetchUserPostsWorker(action) {
 		yield put(userPostsRequestAction());
 
 		const res = yield call(api.getUserPosts, userId);
-		if (res.status === 200) {
-			yield put(userPostsSuccessAction(res.data));
-		} else {
-			yield put(userPostsFailAction(res.message));
-			console.log(res);
-		}
+		yield put(userPostsSuccessAction(res.data));
 	} catch (error) {
-		yield put(userPostsFailAction(res.message));
-		console.log(error);
+		yield put(
+			userPostsFailAction(`Не удалось получить список постов пользователя :( ${error.message}`),
+		);
 	}
 }
 

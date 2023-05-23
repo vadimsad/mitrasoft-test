@@ -12,15 +12,9 @@ function* fetchPostsWorker() {
 		yield put(postsRequestAction());
 
 		const res = yield call(api.getPosts);
-		if (res.status === 200) {
-			yield put(postsSuccessAction(res.data));
-		} else {
-			yield put(postsFailAction(res.message));
-			console.log(res);
-		}
+		yield put(postsSuccessAction(res.data));
 	} catch (error) {
-		yield put(postsFailAction(res.message));
-		console.log(error);
+		yield put(postsFailAction(`Не удалось получить посты :( ${error.message}`));
 	}
 }
 

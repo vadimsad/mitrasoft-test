@@ -6,7 +6,6 @@ import { selectUserData } from '../../redux/reducers/user';
 
 const PostsPage = () => {
 	const { content } = useSelector(selectPostsData);
-	const userData = useSelector(selectUserData);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
