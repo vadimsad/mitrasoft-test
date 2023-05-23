@@ -36,9 +36,6 @@ const Post = ({ body, id, title, userId }) => {
 						<Card.Title>{title}</Card.Title>
 						<Card.Text>{body}</Card.Text>
 						<Button onClick={loadComments} disabled={loading} size='sm'>
-							{loading && (
-								<Spinner as='span' animation='border' size='sm' role='status' aria-hidden='true' />
-							)}
 							Комментарии
 						</Button>
 						{showComments && <Comments postId={id} />}

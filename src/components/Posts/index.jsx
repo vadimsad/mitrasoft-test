@@ -8,11 +8,11 @@ const Posts = () => {
 	const { posts } = useSelector(selectPostsData);
 
 	return (
-		<Row style={{ flexDirection: 'column', gap: '15px' }}>
+		<div className='d-flex flex-column gap-3'>
 			{posts.map((post) => (
 				<Post {...post} key={post.id} />
 			))}
-		</Row>
+		</div>
 	);
 };
 

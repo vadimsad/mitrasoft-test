@@ -6,12 +6,19 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Col, Image, Row } from 'react-bootstrap';
+import Logo from '../Logo';
 
 const Header = () => {
 	return (
-		<header className='mb-5'>
+		<header className='mb-3'>
 			<Navbar bg='light' expand={'md'}>
 				<Container>
+					<LinkContainer to='/about'>
+						<Navbar.Brand as={NavLink} to='/about'>
+							<Logo />
+						</Navbar.Brand>
+					</LinkContainer>
 					<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
 					<Navbar.Offcanvas
 						id={`offcanvasNavbar-expand-md`}
@@ -19,7 +26,9 @@ const Header = () => {
 						placement='start'
 					>
 						<Offcanvas.Header closeButton>
-							<Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>Меню</Offcanvas.Title>
+							<Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>
+								<Logo />
+							</Offcanvas.Title>
 						</Offcanvas.Header>
 						<Offcanvas.Body>
 							<Nav className='justify-content-center flex-grow-1'>

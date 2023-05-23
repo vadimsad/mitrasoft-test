@@ -17,9 +17,10 @@ const PostsPage = () => {
 	}
 
 	return (
-		<>
+		<section>
+			<h1 className='fs-2'>Все посты:</h1>
 			<Posts />
-		</>
+		</section>
 	);
 };
 
