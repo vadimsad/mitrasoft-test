@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Button, Image, Spinner } from 'react-bootstrap';
+import { Card, Button, Image } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCommentsAction, selectCommentsByPostId } from '../../../redux/reducers/comments';
 import { Link } from 'react-router-dom';

@@ -15,7 +15,7 @@ const Logo = () => {
 				</div>
 			</Col>
 			<Col>
-				<h6 className='mb-0' style={{ fontSize: '1rem', lineHeight: 1 }}>
+				<h6 className='mb-0 text-primary' style={{ fontSize: '1rem', lineHeight: 1 }}>
 					Вадим Садыков
 				</h6>
 				<span className='text-muted' style={{ fontSize: '0.9rem' }}>

@@ -26,7 +26,12 @@ const Header = () => {
 						placement='start'
 					>
 						<Offcanvas.Header closeButton>
-							<Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>
+							<Offcanvas.Title
+								id={`offcanvasNavbarLabel-expand-md`}
+								className='text-decoration-none'
+								as={NavLink}
+								to='/about'
+							>
 								<Logo />
 							</Offcanvas.Title>
 						</Offcanvas.Header>

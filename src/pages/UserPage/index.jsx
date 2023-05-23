@@ -25,8 +25,8 @@ const UserPage = () => {
 
 	return (
 		<>
-			<Button variant='link' onClick={goToPrevPage}>
-				Назад
+			<Button variant='link' onClick={goToPrevPage} className='mb-3'>
+				←Назад
 			</Button>
 			<section className='mb-5'>
 				<h2 className='fs-4'>Пользователь</h2>
