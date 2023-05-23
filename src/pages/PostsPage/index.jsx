@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPostsAction, selectPostsData } from '../../redux/reducers/posts';
 import Posts from '../../components/Posts';
+import { selectUserData } from '../../redux/reducers/user';
 
 const PostsPage = () => {
 	const { content } = useSelector(selectPostsData);
+	const userData = useSelector(selectUserData);
 	const dispatch = useDispatch();
 
 	useEffect(() => {

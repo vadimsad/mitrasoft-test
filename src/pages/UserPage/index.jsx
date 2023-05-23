@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router';
 import Posts from '../../components/Posts';
 import User from '../../components/User';
-import { fetchUserAction, selectUserPosts } from '../../redux/reducers/user';
+import { fetchUserAction, selectUserData, selectUserPosts } from '../../redux/reducers/user';
 import { Button } from 'react-bootstrap';
 
 const UserPage = () => {
 	const { id } = useParams();
+	const userData = useSelector(selectUserData);
+	const userPosts = useSelector(selectUserPosts);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
+	const userAlreadyLoaded = userData.content?.id == id;
+
 	useEffect(() => {
+		if (userAlreadyLoaded) return;
 		dispatch(fetchUserAction(id));
 	}, [id]);
 

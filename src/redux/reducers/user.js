@@ -8,7 +8,7 @@ export const FETCH_USER = 'FETCH_USER';
 
 const initialState = {
 	userData: {
-		content: [],
+		content: {},
 		loading: true,
 		error: null,
 	},
