@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
 import AboutPage from './pages/AboutPage/index.jsx';
-import AuthorPage from './pages/AuthorPage/index.jsx';
+import UserPage from './pages/UserPage/index.jsx';
 import PostsPage from './pages/PostsPage/index.jsx';
 import store from './redux/store.js';
 
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: ':id',
-				element: <AuthorPage />,
+				element: <UserPage />,
 			},
 			{
 				path: '/about',

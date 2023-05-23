@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchPostsAction, selectPostsData } from '../../redux/reducers/posts';
 import Posts from '../../components/Posts';
 
 const PostsPage = () => {
+	const { content } = useSelector(selectPostsData);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		if (content.length !== 0) return;
 		dispatch(fetchPostsAction());
 	}, []);
 
