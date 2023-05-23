@@ -25,7 +25,7 @@ const Post = ({ body, id, title, userId }) => {
 		<>
 			<Card>
 				<Card.Body className='d-md-flex d-block gap-3'>
-					<Link to={`${id}`} className='h-100 d-inline-block'>
+					<Link to={`/${userId}`} className='h-100 d-inline-block'>
 						<Image
 							src='https://www.tiger-site.com/wp-content/tiger-files/placeholder.png'
 							width='100px'

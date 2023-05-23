@@ -12,7 +12,7 @@ const PostsPage = () => {
 
 	return (
 		<section>
-			<h1 className='fs-3'>Все посты:</h1>
+			<h1 className='fs-3 mb-3'>Все посты:</h1>
 			<Posts postsSelector={selectPostsData} />
 		</section>
 	);

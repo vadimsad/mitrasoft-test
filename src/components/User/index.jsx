@@ -10,8 +10,6 @@ const User = () => {
 		return <Spinner className='d-flex mx-auto' animation='border' />;
 	}
 
-	const { name, email, phone, website, address } = userData;
-
 	return (
 		<Card>
 			<Card.Body>
